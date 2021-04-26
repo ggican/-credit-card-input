@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reducer Services Component SUCCESS servicesRedux Snapshot servicesRedux 1`] = `
+Object {
+  "pokemon": Object {
+    "pokemonDetail": false,
+    "pokemonFilter": false,
+    "pokemonList": Object {
+      "data": Array [
+        "cool",
+      ],
+      "group": "pokemon",
+      "isError": false,
+      "isSuccess": true,
+      "key": "pokemonList",
+      "message": Object {
+        "message": "cool its me",
+      },
+      "reducer": "reducer",
+      "type": 200,
+    },
+  },
+  "user": Object {
+    "auth": false,
+  },
+}
+`;
+
+exports[`Reducer Services Component SUCCESS servicesState  Snapshot servicesState 1`] = `
+Object {
+  "pokemon": Object {
+    "pokemonDetail": false,
+    "pokemonFilter": false,
+    "pokemonList": false,
+  },
+  "user": Object {
+    "auth": false,
+  },
+}
+`;

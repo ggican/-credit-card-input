@@ -1,0 +1,26 @@
+{
+    "thumb-avatar": {
+        "size": {
+            "large": {
+                "value": "40px"
+            },
+            "medium": {
+                "value": "30px"
+            },
+            "small": {
+                "value": "25px"
+            }
+        },
+        "radius": {
+            "circle": {
+                "value": "50%"
+            },
+            "normal": {
+                "value": "10px"
+            },
+            "box": {
+                "value": "0"
+            }
+        }
+    }
+}

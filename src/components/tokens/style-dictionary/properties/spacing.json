@@ -1,0 +1,13 @@
+{
+    "spacing": {
+        "small": {
+            "value": "10px"
+        },
+        "medium": {
+            "value": "15px"
+        },
+        "large": {
+            "value": "20px"
+        }
+    }
+}

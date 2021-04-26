@@ -1,0 +1,137 @@
+{
+    "name": "poke-api",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "@testing-library/user-event": "^7.1.2",
+        "axios": "^0.19.2",
+        "env-cmd": "^10.1.0",
+        "formik": "^2.2.6",
+        "inputmask-core": "^2.2.0",
+        "react": "^16.13.0",
+        "react-datepicker": "^2.13.0",
+        "react-dom": "^16.13.0",
+        "react-icons": "^3.9.0",
+        "react-ionicons": "^3.1.4",
+        "react-router-dom": "^5.1.2",
+        "react-scripts": "3.4.0",
+        "sinon": "^9.0.1",
+        "styled-components": "^5.0.1",
+        "yup": "^0.32.9"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "eject": "react-scripts eject",
+        "build:token": "style-dictionary build --config ./src/components/tokens/style-dictionary/config.json",
+        "build:production": "env-cmd -f ./src/environments/.env.production npm run build",
+        "build:development": "env-cmd -f ./src/environments/.env.development npm run build",
+        "build:staging": "env-cmd -f ./src/environments/.env.staging npm run build",
+        "build:local": "env-cmd -f ./src/environments/.env.local npm run build",
+        "start:production": "env-cmd -f ./src/environments/.env.production npm run start",
+        "start:development": "env-cmd -f ./src/environments/.env.development npm run start",
+        "start:staging": "env-cmd -f ./src/environments/.env.staging npm run start",
+        "start:local": "env-cmd -f ./src/environments/.env.local npm run start",
+        "test": "env-cmd -f ./src/environments/.env.test react-scripts test --env=jsdom --color --watchAll",
+        "test:ci": "npm run test:no-watch -- --coverage",
+        "test:ci-snap": "npm run test:no-watch -- --updateSnapshot",
+        "test:cov": "npm run test -- --coverage --colors",
+        "test:cov-ci": "npm run test:un-watch -- --coverage --watchAll=false --colors",
+        "test:un-watch": "react-scripts test --watchAll=false  --colors",
+        "test:debug": "env-cmd -f ./environments/.env.test react-scripts --inspect-brk test --runInBand --no-cache",
+        "test:lint": "eslint --fix src",
+        "test:no-watch": "env-cmd -f ./environments/.env.test react-scripts test",
+        "test:push-report": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+        "test:snap": "npm run test:no-watch",
+        "precommit": "lint-staged",
+        "reformat": "prettier-eslint --write \"{,!(node_modules)/**/}*.{js,jsx}\"",
+        "storybook": "start-storybook -p 6006 -c .storybook",
+        "storybook:build": "build-storybook -c .storybook -o storybook-static"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.8.6",
+        "@storybook/addon-actions": "^5.3.14",
+        "@storybook/addon-docs": "^5.3.14",
+        "@storybook/addon-info": "^5.3.14",
+        "@storybook/addon-links": "^5.3.14",
+        "@storybook/addon-viewport": "^5.3.14",
+        "@storybook/preset-create-react-app": "^2.0.0",
+        "@storybook/react": "^5.3.13",
+        "@testing-library/react-hooks": "^3.2.1",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-styled-components": "^1.10.7",
+        "coveralls": "^3.0.0",
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.2",
+        "enzyme-to-json": "^3.4.4",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-better-styled-components": "^1.1.2",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-react": "^7.18.3",
+        "eslint-plugin-react-hooks": "^2.5.0",
+        "husky": "^4.2.3",
+        "jest-prop-type-error": "^1.1.0",
+        "jest-styled-components": "^7.0.0",
+        "lint-staged": "^10.0.8",
+        "prettier": "1.19.1",
+        "pretty-quick": "^2.0.1",
+        "style-dictionary": "^2.8.3"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "setupFiles": [
+        "jest-prop-type-error"
+    ],
+    "jest-junit": {
+        "reporters": [
+            "jest-junit"
+        ],
+        "output": "./junit.xml",
+        "classNameTemplate": "{classname}-{title}",
+        "titleTemplate": "{classname}-{title}",
+        "ancestorSeparator": " › ",
+        "suiteNameTemplate": "{filepath}",
+        "usePathForSuiteName": "true"
+    },
+    "jest": {
+        "coverageReporters": [
+            "json",
+            "html",
+            "text",
+            "lcov"
+        ],
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer"
+        ],
+        "coveragePathIgnorePatterns": [
+            ".stories.js"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,json,css,md}": [
+            "eslint --fix src",
+            "git add"
+        ]
+    }
+}

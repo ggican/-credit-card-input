@@ -1,0 +1,13 @@
+{
+    "padding": {
+        "small": {
+            "value": "7px"
+        },
+        "medium": {
+            "value": "10px"
+        },
+        "large": {
+            "value": "12px"
+        }
+    }
+}

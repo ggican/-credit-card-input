@@ -1,0 +1,32 @@
+language: node_js
+node_js:
+    - "stable"
+cache:
+    directories:
+        - node_modules
+env:
+    - CI=false
+before_deploy:
+    - npm install netlify-cli -g
+    - npm run test:cov-ci
+    - npm run build
+    - npm run storybook:build
+    on:
+        branch: master
+script:
+    - npm install
+    on:
+        branch: master
+after_script: # Upload coverage reports
+    - COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN npm run test:push-report
+    on:
+        branch: master
+deploy:
+    - provider: script
+      script: netlify deploy -s $NETLIFY_SITE_ID_STORYBOOK --auth $NETLIFY_ACCESS_TOKEN_STORYBOOK -p --dir ./storybook-static
+      on:
+          branch: master
+    - provider: script
+      script: netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./build
+      on:
+          branch: master
